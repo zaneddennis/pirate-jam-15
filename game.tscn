@@ -1,0 +1,673 @@
+[gd_scene load_steps=23 format=3 uid="uid://c0nghd54khm3x"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_oiwyh"]
+[ext_resource type="Script" path="res://world.gd" id="2_6lu8i"]
+[ext_resource type="Texture2D" uid="uid://chakc7r45aot6" path="res://PlaceholderAssets/TilesetFloor.png" id="2_f56if"]
+[ext_resource type="PackedScene" uid="uid://tdtuuomts02v" path="res://WorldObjects/Readables/signpost.tscn" id="3_3kcnm"]
+[ext_resource type="PackedScene" uid="uid://bn4nt2r14fns2" path="res://player.tscn" id="3_bcfvu"]
+[ext_resource type="PackedScene" uid="uid://bpg0lhb62nms2" path="res://WorldObjects/examinable_object.tscn" id="3_voysy"]
+[ext_resource type="PackedScene" uid="uid://dym8epfuho42s" path="res://WorldObjects/Dispensers/blue_plant.tscn" id="4_is6ah"]
+[ext_resource type="Script" path="res://UI/read_interface.gd" id="5_07n0n"]
+[ext_resource type="PackedScene" uid="uid://8kutk8sw7kt2" path="res://WorldObjects/Dispensers/candle.tscn" id="6_ewucx"]
+[ext_resource type="Resource" uid="uid://dgvxuui6jppq8" path="res://Items/lamp.tres" id="6_tdmdn"]
+[ext_resource type="PackedScene" uid="uid://dde5env2g6edk" path="res://WorldObjects/torch.tscn" id="8_ot6tq"]
+[ext_resource type="Texture2D" uid="uid://cq1ftj8hehee7" path="res://PlaceholderAssets/TilesetLight.png" id="9_2rupr"]
+[ext_resource type="PackedScene" uid="uid://cdmrdjb5p2ub1" path="res://WorldObjects/Dispensers/shadow_box.tscn" id="9_780ix"]
+[ext_resource type="Script" path="res://UI/inventory_interface.gd" id="9_th6th"]
+[ext_resource type="Script" path="res://UI/crafting_interface.gd" id="11_rx0o1"]
+[ext_resource type="PackedScene" uid="uid://pua5n66psct1" path="res://UI/Widgets/ingredient_slot.tscn" id="12_ovtrn"]
+[ext_resource type="Resource" uid="uid://cuskmiy5kaeh" path="res://Items/wax.tres" id="13_50nd8"]
+[ext_resource type="Resource" uid="uid://dk522ujdcu3bv" path="res://Items/wick.tres" id="14_my4ul"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x50lf"]
+texture = ExtResource("2_f56if")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8g3mh"]
+resource_name = "WorldObjects"
+scenes/1/scene = ExtResource("3_voysy")
+scenes/2/scene = ExtResource("4_is6ah")
+scenes/3/scene = ExtResource("3_3kcnm")
+scenes/4/scene = ExtResource("6_ewucx")
+scenes/5/scene = ExtResource("8_ot6tq")
+scenes/6/scene = ExtResource("9_780ix")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjhyi"]
+texture = ExtResource("9_2rupr")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0/terrains_peering_bit/left_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_left_corner = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_41pya"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "LightBasic"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_x50lf")
+sources/1 = SubResource("TileSetScenesCollectionSource_8g3mh")
+sources/2 = SubResource("TileSetAtlasSource_xjhyi")
+
+[node name="Game" type="Node"]
+script = ExtResource("1_oiwyh")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("2_6lu8i")
+
+[node name="TileMap" type="TileMap" parent="World"]
+tile_set = SubResource("TileSet_41pya")
+format = 2
+layer_0/name = "Floor"
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 3, 0, 0, 4, 0, 0, 262144, 0, 0, 196608, 0, 0, 131072, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 131075, 0, 0, 131074, 0, 0, 131073, 0, 0, 131076, 0, 0, 196612, 0, 0, 196611, 0, 0, 196610, 0, 0, 196609, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 5, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 262149, 0, 0, 196613, 0, 0, 131077, 0, 0, 65541, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 393222, 0, 0, 393221, 0, 0, 393220, 0, 0, 393219, 0, 0, 393218, 0, 0, 393217, 0, 0, 393216, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 589827, 0, 0, 589826, 0, 0, 524290, 0, 0, 524291, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 786437, 0, 0, 851973, 0, 0, 917509, 0, 0, 917505, 0, 0, 851969, 0, 0, 786433, 0, 0, 917508, 0, 0, 917507, 0, 0, 917506, 0, 0, 851970, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 851972, 0, 0, 851971, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 786432, 0, 0, 851967, 0, 0, 851966, 0, 0, 720896, 0, 0, 786431, 0, 0, 786430, 0, 0, 917502, 0, 0, 917503, 0, 0, 851968, 0, 0, 720893, 0, 0, 720892, 0, 0, 720891, 0, 0, 786425, 0, 0, 851961, 0, 0, 917497, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 917501, 0, 0, 851965, 0, 0, 786429, 0, 0, 786428, 0, 0, 786427, 0, 0, 786426, 0, 0, 851962, 0, 0, 917498, 0, 0, 917499, 0, 0, 917500, 0, 0, 851964, 0, 0, 851963, 0, 0, 720902, 0, 0, 786438, 0, 0, 851974, 0, 0, 720903, 0, 0, 720904, 0, 0, 786440, 0, 0, 851976, 0, 0, 851975, 0, 0, 786439, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 720909, 0, 0, 786445, 0, 0, 851981, 0, 0, 917517, 0, 0, 917516, 0, 0, 917515, 0, 0, 917514, 0, 0, 917513, 0, 0, 851977, 0, 0, 786441, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 786443, 0, 0, 786442, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 786444, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1114111, 0, 0, 1048583, 0, 0, 1179646, 0, 0, 1179647, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114116, 0, 0, 1114117, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1179656, 0, 0, 1179655, 0, 0, 1179654, 0, 0, 1179653, 0, 0, 1179652, 0, 0, 1179651, 0, 0, 1179650, 0, 0, 1179649, 0, 0, 1179648, 0, 0, 1245183, 0, 0, 1245182, 0, 0, 1245184, 0, 0, 1245185, 0, 0, 1245186, 0, 0, 1245187, 0, 0, 1245188, 0, 0, 1245189, 0, 0, 1245190, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 2, 0, 0, 983037, 0, 0, 720889, 0, 0, 720890, 0, 0)
+layer_1/name = "Object"
+layer_1/tile_data = PackedInt32Array(262149, 1, 196608, 3, 1, 65536, -65535, 0, 1, -65536, 0, 1, -65531, 0, 1, -65530, 0, 1, 393223, 0, 1, 458751, 0, 1, 393215, 65536, 0, 327679, 65536, 0, 262143, 65536, 0, 196607, 65536, 0, 131071, 65536, 0, 65535, 65536, 0, -1, 65536, 0, -65529, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 131079, 65536, 0, 196615, 65536, 0, 262151, 65536, 0, 327687, 65536, 0, 458758, 0, 1, 458757, 65536, 0, 458752, 0, 1, 458753, 65536, 0, 589829, 0, 1, 524293, 65536, 0, 524289, 65536, 0, 589825, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 589833, 0, 1, 589834, 0, 1, 589835, 0, 1, 589836, 0, 1, 589837, 0, 1, 983054, 0, 1, 589838, 65536, 0, 655374, 65536, 0, 720910, 65536, 0, 786446, 65536, 0, 851982, 65536, 0, 917518, 65536, 0, 983053, 0, 1, 983052, 0, 1, 983051, 0, 1, 983050, 0, 1, 983049, 0, 1, 917512, 0, 1, 917511, 0, 1, 917510, 65536, 0, 983046, 0, 1, 983040, 0, 1, 917504, 65536, 0, 983039, 0, 1, 983038, 0, 1, 1048573, 0, 1, 1048572, 0, 1, 1048571, 0, 1, 1048570, 0, 1, 1048569, 0, 1, 1048568, 0, 1, 983032, 65536, 0, 917496, 65536, 0, 851960, 65536, 0, 786424, 65536, 0, 720888, 65536, 0, 655352, 65536, 0, 655353, 0, 1, 655354, 0, 1, 655355, 0, 1, 655356, 0, 1, 655357, 0, 1, 720894, 0, 1, 720895, 0, 1, 655360, 0, 1, 1245190, 1, 131072, 1310724, 1, 131072, 1310722, 1, 131072, 1245184, 1, 131072, 720889, 1, 327680, 983033, 1, 327680, 655373, 1, 327680, 917517, 1, 327680, 1048582, 1, 327680, 1048576, 1, 327680)
+layer_2/name = "Decoration"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Item"
+layer_3/tile_data = PackedInt32Array(720895, 1, 262144, 655367, 1, 262144, 262145, 1, 393216)
+layer_4/name = "Light"
+layer_4/modulate = Color(1, 1, 1, 0.588235)
+layer_4/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("3_bcfvu")]
+position = Vector2(77, 103)
+inventory = [ExtResource("6_tdmdn")]
+ingredients = {
+ExtResource("13_50nd8"): 99,
+ExtResource("14_my4ul"): 99
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Examine" type="Panel" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(512, 128)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -224.0
+offset_right = 256.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_07n0n")
+
+[node name="Text" type="Label" parent="UI/Examine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum et cetera blah blah blah foo bar bat"
+autowrap_mode = 3
+
+[node name="Advance" type="Label" parent="UI/Examine/Text"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "[F] >"
+
+[node name="Read" type="Panel" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_07n0n")
+
+[node name="Text" type="Label" parent="UI/Read"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum et cetera blah blah blah foo bar bat"
+autowrap_mode = 3
+
+[node name="Advance" type="Label" parent="UI/Read/Text"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "[F] >"
+
+[node name="Dialogue" type="Panel" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(512, 128)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -224.0
+offset_right = 256.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Inventory" type="Control" parent="UI"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -80.0
+offset_right = 256.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("9_th6th")
+
+[node name="Background" type="HBoxContainer" parent="UI/Inventory"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect7" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="UI/Inventory/Background"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="Slots" type="HBoxContainer" parent="UI/Inventory"]
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="UI/Inventory"]
+layout_mode = 1
+offset_top = -24.0
+offset_right = 105.0
+text = "Selected Item"
+vertical_alignment = 2
+
+[node name="Selection" type="ReferenceRect" parent="UI/Inventory"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+border_color = Color(1, 1, 1, 1)
+border_width = 4.0
+editor_only = false
+
+[node name="Crafting" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("11_rx0o1")
+
+[node name="Ingredients" type="Panel" parent="UI/Crafting"]
+custom_minimum_size = Vector2(152, 480)
+layout_mode = 0
+offset_left = -152.0
+offset_bottom = 440.0
+
+[node name="Hint" type="Panel" parent="UI/Crafting/Ingredients"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="UI/Crafting/Ingredients/Hint"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "[TAB]"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Slots" type="GridContainer" parent="UI/Crafting/Ingredients"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="IngredientSlot" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot2" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot3" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot4" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot5" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot6" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot7" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot8" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot9" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot10" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot11" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot12" parent="UI/Crafting/Ingredients/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Crafting/Ingredients"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+vertical_alignment = 1
+
+[node name="Crafting" type="Panel" parent="UI/Crafting"]
+visible = false
+custom_minimum_size = Vector2(392, 240)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -120.0
+offset_right = 196.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slots" type="GridContainer" parent="UI/Crafting/Crafting"]
+custom_minimum_size = Vector2(208, 208)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -104.0
+offset_right = 224.0
+offset_bottom = 104.0
+grow_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="IngredientSlot" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot2" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot3" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot4" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot5" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot6" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot7" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot8" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="IngredientSlot9" parent="UI/Crafting/Crafting/Slots" instance=ExtResource("12_ovtrn")]
+layout_mode = 2
+
+[node name="Arrow" type="Label" parent="UI/Crafting/Crafting"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 232.0
+offset_top = 88.0
+offset_right = 296.0
+offset_bottom = 152.0
+text = "-->"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Product" type="ColorRect" parent="UI/Crafting/Crafting"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 304.0
+offset_top = 88.0
+offset_right = 368.0
+offset_bottom = 152.0
+color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[node name="TextureRect" type="TextureRect" parent="UI/Crafting/Crafting/Product"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Create" type="Button" parent="UI/Crafting/Crafting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Create"
+
+[node name="Recipes" type="Panel" parent="UI/Crafting"]
+visible = false
+custom_minimum_size = Vector2(256, 512)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_bottom = 440.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Crafting/Recipes"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Crafting/Recipes/VBoxContainer"]
+layout_mode = 2
+text = "Known Recipes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 4.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.156007, 0.172867, 0.240401, 1)
+
+[connection signal="mouse_entered" from="World/TileMap/Torch" to="World/TileMap/Torch" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/Torch" to="World/TileMap/Torch" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67656" to="World/TileMap/@StaticBody2D@67656" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67656" to="World/TileMap/@StaticBody2D@67656" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67657" to="World/TileMap/@StaticBody2D@67657" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67657" to="World/TileMap/@StaticBody2D@67657" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67658" to="World/TileMap/@StaticBody2D@67658" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67658" to="World/TileMap/@StaticBody2D@67658" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67659" to="World/TileMap/@StaticBody2D@67659" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67659" to="World/TileMap/@StaticBody2D@67659" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67660" to="World/TileMap/@StaticBody2D@67660" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67660" to="World/TileMap/@StaticBody2D@67660" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/BluePlant" to="World/TileMap/BluePlant" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/BluePlant" to="World/TileMap/BluePlant" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67661" to="World/TileMap/@StaticBody2D@67661" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67661" to="World/TileMap/@StaticBody2D@67661" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67662" to="World/TileMap/@StaticBody2D@67662" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67662" to="World/TileMap/@StaticBody2D@67662" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67663" to="World/TileMap/@StaticBody2D@67663" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67663" to="World/TileMap/@StaticBody2D@67663" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/Examinable" to="World/TileMap/Examinable" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/Examinable" to="World/TileMap/Examinable" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/Signpost" to="World/TileMap/Signpost" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/Signpost" to="World/TileMap/Signpost" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/ShadowBox" to="World/TileMap/ShadowBox" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/ShadowBox" to="World/TileMap/ShadowBox" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/Candle" to="World/TileMap/Candle" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/Candle" to="World/TileMap/Candle" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="World/TileMap/@StaticBody2D@67664" to="World/TileMap/@StaticBody2D@67664" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="World/TileMap/@StaticBody2D@67664" to="World/TileMap/@StaticBody2D@67664" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Crafting/Crafting/Create" to="UI/Crafting" method="_on_create_pressed"]

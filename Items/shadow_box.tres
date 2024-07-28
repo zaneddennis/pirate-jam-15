@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://koiaoav26jfn"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_7guvn"]
+[ext_resource type="Texture2D" uid="uid://0q52cpfdx5j3" path="res://PlaceholderAssets/Items.png" id="2_xh27p"]
+
+[resource]
+script = ExtResource("1_7guvn")
+name = "Box"
+texture = ExtResource("2_xh27p")
+atlas_coords = Vector2(3, 1)
+hint = "Right Click to Place"
+is_placeable = true
+place_id = 6

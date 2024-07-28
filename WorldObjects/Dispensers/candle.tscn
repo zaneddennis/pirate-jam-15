@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://8kutk8sw7kt2"]
+
+[ext_resource type="PackedScene" uid="uid://ohkc4ia18mc5" path="res://WorldObjects/Dispensers/dispenser_object.tscn" id="1_4jf54"]
+[ext_resource type="Texture2D" uid="uid://0q52cpfdx5j3" path="res://PlaceholderAssets/Items.png" id="2_3bwli"]
+[ext_resource type="Resource" uid="uid://bkxi6wotd08if" path="res://Items/candle.tres" id="2_i1luv"]
+[ext_resource type="Script" path="res://WorldObjects/Dispensers/candle.gd" id="2_jxw58"]
+[ext_resource type="Texture2D" uid="uid://bcfh00v5gafvm" path="res://PlaceholderAssets/2d_lights_and_shadows_neutral_point_light.webp" id="4_bqgft"]
+
+[node name="Candle" instance=ExtResource("1_4jf54")]
+script = ExtResource("2_jxw58")
+item = ExtResource("2_i1luv")
+is_oneshot = true
+display_name = "Candle"
+is_light_source = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3bwli")
+region_rect = Rect2(64, 64, 64, 64)
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+texture = ExtResource("4_bqgft")
+texture_scale = 2.0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dde5env2g6edk"]
+
+[ext_resource type="PackedScene" uid="uid://bpg0lhb62nms2" path="res://WorldObjects/examinable_object.tscn" id="1_s2bf8"]
+[ext_resource type="Texture2D" uid="uid://bcfh00v5gafvm" path="res://PlaceholderAssets/2d_lights_and_shadows_neutral_point_light.webp" id="2_ycfgk"]
+
+[node name="Torch" instance=ExtResource("1_s2bf8")]
+display_name = "Torch Stand"
+examination = "A torch in a metal stand. Cannot be moved or picked up."
+is_light_source = true
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(192, 128, 64, 64)
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
+texture = ExtResource("2_ycfgk")
+texture_scale = 2.0

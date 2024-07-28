@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dym8epfuho42s"]
+
+[ext_resource type="PackedScene" uid="uid://ohkc4ia18mc5" path="res://WorldObjects/Dispensers/dispenser_object.tscn" id="1_u1y2y"]
+[ext_resource type="Resource" uid="uid://cii46ohqeh2f1" path="res://Items/blue_flower.tres" id="2_1fyve"]
+
+[node name="BluePlant" instance=ExtResource("1_u1y2y")]
+item = ExtResource("2_1fyve")
+display_name = "Blue Plant"
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(128, 128, 64, 64)
+
+[node name="Details" parent="." index="2"]
+material = null
+
+[node name="Interact" parent="." index="3"]
+material = null

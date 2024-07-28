@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn4nt2r14fns2"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_oudxg"]
+[ext_resource type="Texture2D" uid="uid://dt4f5uhoqomcx" path="res://PlaceholderAssets/Character.png" id="1_tpgru"]
+[ext_resource type="Texture2D" uid="uid://bcfh00v5gafvm" path="res://PlaceholderAssets/2d_lights_and_shadows_neutral_point_light.webp" id="3_de3ln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjsnx"]
+radius = 24.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_oudxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tpgru")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 32)
+shape = SubResource("CircleShape2D_gjsnx")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("3_de3ln")
+texture_scale = 1.5

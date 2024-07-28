@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdmrdjb5p2ub1"]
+
+[ext_resource type="PackedScene" uid="uid://ohkc4ia18mc5" path="res://WorldObjects/Dispensers/dispenser_object.tscn" id="1_cwhqg"]
+[ext_resource type="Texture2D" uid="uid://0q52cpfdx5j3" path="res://PlaceholderAssets/Items.png" id="2_0wcpf"]
+[ext_resource type="Resource" uid="uid://koiaoav26jfn" path="res://Items/shadow_box.tres" id="2_grfee"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ehiu"]
+polygon = PackedVector2Array(-24, 23, 24, 23, 24, -24, -24, -24)
+
+[node name="ShadowBox" instance=ExtResource("1_cwhqg")]
+item = ExtResource("2_grfee")
+is_oneshot = true
+display_name = "Box"
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0wcpf")
+region_rect = Rect2(192, 64, 64, 64)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="4"]
+occluder = SubResource("OccluderPolygon2D_5ehiu")

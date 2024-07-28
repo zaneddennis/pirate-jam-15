@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpg0lhb62nms2"]
+
+[ext_resource type="PackedScene" uid="uid://fdp1yjxveiu1" path="res://WorldObjects/world_object.tscn" id="1_8syte"]
+
+[node name="Examinable" instance=ExtResource("1_8syte")]
+display_name = "Pyre"
+examination = "A magic spiritual fire"
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(64, 128, 64, 64)

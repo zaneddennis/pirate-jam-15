@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ohkc4ia18mc5"]
+
+[ext_resource type="PackedScene" uid="uid://fdp1yjxveiu1" path="res://WorldObjects/world_object.tscn" id="1_2016u"]
+[ext_resource type="Script" path="res://WorldObjects/Dispensers/dispenser_object.gd" id="2_rhq5k"]
+
+[node name="DispenserObject" instance=ExtResource("1_2016u")]
+script = ExtResource("2_rhq5k")
+item = null
+is_oneshot = false
+display_name = "DISPENSER_OBJECT"
+interaction = 2

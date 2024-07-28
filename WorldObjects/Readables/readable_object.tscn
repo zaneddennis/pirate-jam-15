@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://yuwq6ixkvbp3"]
+
+[ext_resource type="PackedScene" uid="uid://fdp1yjxveiu1" path="res://WorldObjects/world_object.tscn" id="1_pcohy"]
+[ext_resource type="Script" path="res://WorldObjects/Readables/readable_object.gd" id="2_b4wbe"]
+
+[node name="ReadableObject" instance=ExtResource("1_pcohy")]
+script = ExtResource("2_b4wbe")
+texts = Array[String](["This is text from a readable object.", "This is also text.", "This is a third page of text."])
+display_name = "DEFAULT READABLE"
+interaction = 1

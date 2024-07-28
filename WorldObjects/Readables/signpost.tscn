@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tdtuuomts02v"]
+
+[ext_resource type="PackedScene" uid="uid://yuwq6ixkvbp3" path="res://WorldObjects/Readables/readable_object.tscn" id="1_sjurd"]
+
+[node name="Signpost" instance=ExtResource("1_sjurd")]
+display_name = "Signpost"
